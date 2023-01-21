@@ -208,7 +208,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
-                                <input required type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">
+                                <input required maxlength="50" type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group">
                                 <label for="cedula">Cedula:</label>
@@ -220,7 +220,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input required type="email" class="form-control" id="email" name='email'>
+                                <input required maxlength="50" type="email" class="form-control" id="email" name='email'>
                             </div>
                             <div class="form-group">
                                 <label for="telefono">Telefono:</label>
@@ -229,12 +229,12 @@
 
                             <div class="form-group">
                                 <label for="user">Usuario de ingreso:</label>
-                                <input required type="text" class="form-control" id="user" name='user'>
+                                <input required maxlength="20" type="text" class="form-control" id="user" name='user'>
                             </div>
 
                             <div class="form-group">
                                 <label for="pass">Contraseña de ingreso:</label>
-                                <input required type="password" class="form-control" id="pass" name='pass'>
+                                <input required maxlength="20" type="password" class="form-control" id="pass" name='pass'>
                             </div>
                             
                             <button type="submit" class="btn btn-dark">Actualizar Empleado</button>
