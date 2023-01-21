@@ -4,7 +4,7 @@
 	require '../conexion.php';
 
 	if(!isset($_SESSION['id'])){
-		header("Location: ../index.php");
+		header("Location: ../index.html");
 	}
 	
 	$nombre = $_SESSION['nombre'];

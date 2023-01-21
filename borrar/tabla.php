@@ -3,7 +3,7 @@
 	require '../conexion.php';
 	
 	if(!isset($_SESSION['id'])){
-		header("Location: index.php");
+		header("Location: index.html");
 	}
 	
 	$id = $_SESSION['id'];

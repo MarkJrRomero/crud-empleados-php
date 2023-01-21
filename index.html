@@ -1,57 +1,3 @@
-<?php
-	
-	require "conexion.php";
-	
-	session_start();
-	
-	if($_POST){
-		
-		$usuario = str_replace(array("#", "'", ";", "|", "-"), '',$_POST['usuario']);
-		$password = str_replace(array("#", "'", ";", "|", "-"), '',$_POST['password']);
-		
-		$sql = "SELECT id, password, nombre, tipo_usuario FROM pgfacture_mark.usuarios WHERE usuario='$usuario';";
-		// echo $sql;
-		$resultado = $mysqli->query($sql);
-		$num = $resultado->num_rows;
-		
-		if($num>0){
-			$row = $resultado->fetch_assoc();
-			$password_bd = trim($row['password']);
-			
-			$pass_c = trim($password);
-			// echo $password_bd;
-			// echo $pass_c;
-			if($password_bd == $pass_c){
-				
-				$_SESSION['id'] = $row['id'];
-				$_SESSION['nombre'] = $row['nombre'];
-				$_SESSION['tipo_usuario'] = $row['tipo_usuario'];
-				
-				header("Location: principal.php");
-				
-			} else {
-			
-				echo "<script type='text/javascript'>
-				alert('La contraseña no coincide!');
-				</script>";
-			
-			}
-			
-			
-			} else {
-				echo "<script type='text/javascript'>
-					  alert('No existe el usuario!');
-				      </script>";
-		}
-		
-		
-		
-	}
-	
-	
-	
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -74,7 +20,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
-                                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                        <form method="POST" action="./php/login.php">
                                             <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Usuario</label><input class="form-control py-4" id="inputEmailAddress" name="usuario" type="text" placeholder="Digite su usuario" /></div>
                                             <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input class="form-control py-4" id="inputPassword" name="password" type="password" placeholder="Digite su contraseña" /></div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
